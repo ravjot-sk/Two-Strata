@@ -1,0 +1,138 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{parskip}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools,amssymb,amsthm,thmtools,xparse}
+\usepackage{enumitem}
+\usepackage{hyperref,cleveref}
+\usepackage{lipsum}
+\usepackage[dvipsnames]{xcolor} 
+\usepackage{tikz,tikz-cd}
+\usepackage{bm}
+
+\declaretheorem[numberwithin = section]{theorem}
+\declaretheorem[sibling = theorem, style = definition]{definition}
+\declaretheorem[sibling = theorem]{lemma}
+\declaretheorem[sibling = theorem]{proposition}
+\declaretheorem[sibling = theorem]{remark}
+\newtheorem{ccclaim}{Claim}[subsection]
+
+
+\newlist{Claim}{description}{2}
+\setlist[Claim]{labelindent=2em,leftmargin=*}
+\newif\ifInsideClaim
+\newcounter{claim}[theorem]
+\newcounter{cclaim}[claim]
+\renewcommand\theclaim{\arabic{claim}}
+\renewcommand\thecclaim{\arabic{claim}.\arabic{cclaim}}
+\let\originalqedsymbol\qedsymbol
+\newenvironment{claim}{%
+	% disable qed symbol if there is no star
+	\let\qedsymbol\relax%
+	\ifInsideClaim% we have a nested environment
+	\refstepcounter{cclaim}%
+	\let\theclaimcounter\thecclaim%
+	\else%
+	\refstepcounter{claim}%
+	\let\theclaimcounter\theclaim%
+	\InsideClaimtrue%
+	\fi%
+	\Claim\item[\textbf{Claim \theclaimcounter:}]%
+}{\endClaim\InsideClaimfalse\let\qedsymbol\originalqedsymbol}
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{corollary}[theorem]{Corollary}
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{proposition}[theorem]{Proposition}
+
+% \theoremstyle{definition}
+% \newtheorem{example}[theorem]{Example}
+
+% \theoremstyle{definition}
+% \newtheorem{definition}[theorem]{Definition}
+
+% \theoremstyle{remark}
+% \newtheorem*{remark}{Remark}
+
+\newcommand{\cpx}[1]{#1^\mathbb{C}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tgt}[2]{T_{#1} #2}
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\del}{\partial}
+\newcommand{\delbar}{\bar{\partial}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+
+\title{Two Strata Case}
+\author{Ravjot Singh Kohli}
+\date{Apr 2023}
+
+\begin{document}
+	\maketitle
+	
+	\section{K\"ahler Reduction on $\C^n$}
+	The simplest example of K\"ahler reduction with an isolated singular point is a linear action. Let $(z^1,\dots,z^n)$ be holomorphic coordinates on $\C^n$. The standard K\"ahler form on $\C^n$ is given by,
+	\begin{equation}\label{standardkahler}
+		(\omega_{std})_{z} \,=\,  \sum_{k=1}^n \, \frac{i}{2} \, dz^k \wedge d\bar{z}^k
+	\end{equation}
+	The complex structure in these coordinates is given by 
+	\begin{equation}
+		J_{std}\, \left(\frac{\partial}{\partial z^j} \right) \,=\, i \, \frac{\partial}{\partial z^j}, \qquad J_{std}\, \left( \frac{\partial}{\partial \bar{z}^j} \right) \,=\, -i \, \frac{\partial}{\partial \bar{z}^j}
+	\end{equation}
+	The standard metric on $\C^n$ is given by
+	\begin{equation}
+		g_{std}(z) \,=\, \omega_{std}(-,J_{std}-) \,=\, \sum_{k=1}^n \, dz^k \otimes d\bar{z}^k
+	\end{equation}
+	Recall that $\C^n\backslash\{0\} \simeq (0,\infty) \times S^{2n-1}$ with coordinates on the right given by polar coordinates $(r,\theta)$. Here $r = \abs{z}$ and $\theta$ denotes the coordinates on $S^{2n-1}$.
+	The standard metric in these coordinates takes the form
+	\begin{equation}
+		g_{std}(r,\theta) \,=\, dr^2 \,+\, r^2 g_{S^{2n-1}}(\theta)
+	\end{equation}
+	
+	Now let $G\subset U(n)$ be a compact Lie group acting on $\C^n$. We assume that apart from the fixed point set $(\C^n)^G$, the action is free. Hence we have two strata given by the orbit types, $(\C^n)^G$ of orbit type $(G)$ and $(\C^n)\backslash (\C^n)^G$ of orbit type $(e)$  where $e\in G$ is the identity element. 
+	
+	Let $A\in \mathfrak{g} \subset \mathfrak{u}(n)$. The vector field generated on $\C^n$ by the group action, denoted $A_{\C^n}$, is given by \red{vertical line}
+	\begin{equation}
+		\begin{split}
+			A_{\C^n}(z) \,&=\, \frac{d}{dt}\rvert_{t=0} exp(tA)\cdot z\\
+				&=\, A \cdot z
+		\end{split}
+	\end{equation}
+	where we have assumed that $z$ is not a fixed point of $G$-action.
+	
+	The moment map with respect to this action is given by
+	\begin{align*}\label{standardmoment}
+		\Phi_{std}(z) (A) \,=\, (\omega_{std})_z(A\cdot z, z)
+	\end{align*}
+	where $A\in \mathfrak{g}\subset \mathfrak{u}(n)$ is a skew-Hermitian matrix. 	
+	
+	\begin{lemma}\label{conelemma}
+		The zero level set $Z_{std}:=\inv{\Phi_{std}}(0)$ is a cone,  \textit{i.e.,} $Z_{std} \simeq [0,\infty) \times L$ where $L=Z_{std}\cap S^{2n-1}$
+	\end{lemma} 
+	\begin{proof}
+		Let $p\in Z_{std}$. Consider the scalar multiplication of $\R^+$ on $\C^n$ denoted by $t\cdot p$. Then we have
+		\begin{equation*}
+			\begin{split}
+				\Phi_{std}(t\cdot p) (A) \,&=\, (\omega_{std})_{t\cdot p}(A\cdot (t\cdot p), t\cdot p) \\
+				&=\, t^2\, (\omega_{std})_p(A\cdot p, p)\\
+				&=\, t^2 \, \Phi_{std}(p)(A)\\
+				&=\, 0
+			\end{split}
+		\end{equation*}
+		where we used that $(\omega_{std})_{p}$ is independent of the point $p\in \C^n$ and that scalar multiplication on $\C^n$ is linear and commutes with the action of $\mathfrak{u}(n)$.
+	\end{proof}
+	
+	Note that $0\in Z_{std} \subset \C^n$ is the only singular point and $Z_{std}\backslash\{0\}$ is a smooth manifold. The reduced space defined as the quotient $\pi:Z_{std} \to Z_{std}/G=:(\C^n)_0$ has two strata, the point $\pi(0)$ and the rest. Hence outside the point $\pi(0)$, we can talk about the symplectic form $(\omega_{std})_0$ and the Riemannian metric $(g_{std})_0$ on the manifold $(\C^n)_0\backslash\{\pi(0)\}$ coming from smooth K\"ahler reduction. 
+	
+	Note that the $G$-action on $Z_{std}\backslash\{0\} \simeq (0,\infty) \times L$ acts only on the link $L$ and so 
+	\begin{equation}
+		(\C^n)_0\backslash\{\pi(0)\} \,\simeq\, (0,\infty) \times (L/G)
+	\end{equation}
+	Now combining \Cref{quotientmetric}, \Cref{kahlerreduction}, and the above decomposition, we get that the metric on the reduced space can be written as
+	\begin{equation}\label{standardquotientmetric}
+		(g_{std})_0(r,\phi) \,=\, dr^2 \,+\, r^2 g_{L/G}(\phi)
+	\end{equation}
+	where $g_{L/G}$ is the quotient metric on manifold $L/G$ (with coordinates $(\phi)$).
+\end{document}
