@@ -91,22 +91,30 @@
 		g_{std}(r,\theta) \,=\, dr^2 \,+\, r^2 g_{S^{2n-1}}(\theta)
 	\end{equation}
 	
-	Now let $G\subset U(n)$ be a compact Lie group acting on $\C^n$. We assume that apart from the fixed point set $(\C^n)^G$, the action is free. Hence we have two strata given by the orbit types, $(\C^n)^G$ of orbit type $(G)$ and $(\C^n)\backslash (\C^n)^G$ of orbit type $(e)$  where $e\in G$ is the identity element. 
-	
-	Let $A\in \mathfrak{g} \subset \mathfrak{u}(n)$. The vector field generated on $\C^n$ by the group action, denoted $A_{\C^n}$, is given by \red{vertical line}
+	Now let $G\subset U(n)$ be a compact Lie group acting on $\C^n$. We assume that apart from the fixed point set, the action is free. Hence we have two strata given by the orbit types, $(\C^n)_G$ of orbit type $(G)$ and $(\C^n)_e=(\C^n)\backslash (\C^n)_{G}$ of orbit type $(e)$ where $e\in G$ is the identity element. Note that $(\C^n)_G$ is a linear \red{symplectic subspace}. Let $W:= ((\C^n)_G)^\perp$ denote the perpendicular subspace with respect to the standard metric on $\C^n$. Then $W$ is a \red{symplectic subspace} as well.
+	We can write the stratum $(\C^n)_e$ as the product
 	\begin{equation}
-		\begin{split}
-			A_{\C^n}(z) \,&=\, \frac{d}{dt}\rvert_{t=0} exp(tA)\cdot z\\
-				&=\, A \cdot z
-		\end{split}
+		(\C^n)_e \,=\, (\C^n)_G \times (W \backslash\{0\})
 	\end{equation}
-	where we have assumed that $z$ is not a fixed point of $G$-action.
+	Note that the standard Riemannian metric and the symlectic form restricted to $(\C^n)_e$ is then compatible with respect to the above decomposition. Let $(u_1,\dots, u_m)$ be the coordinates for $(\C^n)_G$ and let $(w_1,\dots,w_l)$ the coordinates for $W$. Then for a point $z=(u,w)\in (\C^n)_e$,
+	\begin{equation}
+		g_{std} (u,w) \,=\, \sum_{k=1}^m \, du^k \otimes d\bar{u}^k \,+\, \sum_{k=1}^l \, dw^k \otimes d\bar{w}^k
+	\end{equation} 
+	
+	
+	Let $A\in \mathfrak{g} \subset \mathfrak{u}(n)$. The vector field generated on $\C^n$ by the group action, denoted $A_{\C^n}$, is given by
+	\begin{equation}\label{vecfield}
+		A_{\C^n}(z) \,=\, \frac{d}{dt}\Bigr|_{t=0} \text{exp}(tA)\cdot z \,=\, \begin{cases}
+			0 & \text{$z \in (\C^n)_G$} \\
+			A \cdot z & \text{$z \in (\C^n)_{e}$}
+		\end{cases}
+\end{equation}
 	
 	The moment map with respect to this action is given by
 	\begin{align*}\label{standardmoment}
-		\Phi_{std}(z) (A) \,=\, (\omega_{std})_z(A\cdot z, z)
+		\Phi_{std}(z) (A) \,=\, (\omega_{std})_z(A_{\C^n}(z), z)
 	\end{align*}
-	where $A\in \mathfrak{g}\subset \mathfrak{u}(n)$ is a skew-Hermitian matrix. 	
+	where $A\in \mathfrak{g}\subset \mathfrak{u}(n)$ is a skew-Hermitian matrix. From \eqref{vecfield}, we see that $(\C^n)_G \subset \inv{\Phi_{std}}(0)$.
 	
 	\begin{lemma}\label{conelemma}
 		The zero level set $Z_{std}:=\inv{\Phi_{std}}(0)$ is a cone,  \textit{i.e.,} $Z_{std} \simeq [0,\infty) \times L$ where $L=Z_{std}\cap S^{2n-1}$
@@ -115,13 +123,13 @@
 		Let $p\in Z_{std}$. Consider the scalar multiplication of $\R^+$ on $\C^n$ denoted by $t\cdot p$. Then we have
 		\begin{equation*}
 			\begin{split}
-				\Phi_{std}(t\cdot p) (A) \,&=\, (\omega_{std})_{t\cdot p}(A\cdot (t\cdot p), t\cdot p) \\
-				&=\, t^2\, (\omega_{std})_p(A\cdot p, p)\\
+				\Phi_{std}(t\cdot p) (A) \,&=\, (\omega_{std})_{t\cdot p}(A_{\C^n}(t\cdot p), t\cdot p) \\
+				&=\,  (\omega_{std})_p(t \cdot A_{\C^n}(p), t\cdot p)\\
 				&=\, t^2 \, \Phi_{std}(p)(A)\\
 				&=\, 0
 			\end{split}
 		\end{equation*}
-		where we used that $(\omega_{std})_{p}$ is independent of the point $p\in \C^n$ and that scalar multiplication on $\C^n$ is linear and commutes with the action of $\mathfrak{u}(n)$.
+		where we have used that $(\omega_{std})_{p}$ is independent of the point $p\in \C^n$ and that scalar multiplication on $\C^n$ is linear and commutes with the action of $\mathfrak{u}(n)$.
 	\end{proof}
 	
 	Note that $0\in Z_{std} \subset \C^n$ is the only singular point and $Z_{std}\backslash\{0\}$ is a smooth manifold. The reduced space defined as the quotient $\pi:Z_{std} \to Z_{std}/G=:(\C^n)_0$ has two strata, the point $\pi(0)$ and the rest. Hence outside the point $\pi(0)$, we can talk about the symplectic form $(\omega_{std})_0$ and the Riemannian metric $(g_{std})_0$ on the manifold $(\C^n)_0\backslash\{\pi(0)\}$ coming from smooth K\"ahler reduction. 
