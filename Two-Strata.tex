@@ -81,7 +81,7 @@
 	\begin{equation}
 		J_{std}\, \left(\frac{\partial}{\partial z^j} \right) \,=\, i \, \frac{\partial}{\partial z^j}, \qquad J_{std}\, \left( \frac{\partial}{\partial \bar{z}^j} \right) \,=\, -i \, \frac{\partial}{\partial \bar{z}^j}
 	\end{equation}
-	The standard metric on $\C^n$ is given by
+	The standard \red{hermitian} metric on $\C^n$ is given by
 	\begin{equation}
 		g_{std}(z) \,=\, \omega_{std}(-,J_{std}-) \,=\, \sum_{k=1}^n \, dz^k \otimes d\bar{z}^k
 	\end{equation}
@@ -92,6 +92,15 @@
 	\end{equation}
 	
 	Now let $G\subset U(n)$ be a compact Lie group acting on $\C^n$. We assume that apart from the fixed point set, the action is free. Hence we have two strata given by the orbit types, $(\C^n)_G$ of orbit type $(G)$ and $(\C^n)_e=(\C^n)\backslash (\C^n)_{G}$ of orbit type $(e)$ where $e\in G$ is the identity element. Note that $(\C^n)_G$ is a linear \red{symplectic subspace}. Let $W:= ((\C^n)_G)^\perp$ denote the perpendicular subspace with respect to the standard metric on $\C^n$. Then $W$ is a \red{symplectic subspace} as well.
+	
+	\begin{lemma}
+		The subspaces $(\C^n)_G$ and $W$ are symplectic and complex subspaces of $\C^n$
+	\end{lemma}
+	\begin{proof}
+		$(\C^n)_G$ is a complex subspace is clear from the fact that if $v_1, v_2 \in (\C^n)_G$ then $a v_1 \,+\, b v_2 \in (\C^n)_G$ for all $a,b\in \C$ since $G$ action is via unitary matrices which are complex linear. $W$ being the orthogonal complement \red{hermitian} metric means that $W$ is again a complex subspace.
+		
+		 
+	\end{proof}
 	We can write the stratum $(\C^n)_e$ as the product
 	\begin{equation}
 		(\C^n)_e \,=\, (\C^n)_G \times (W \backslash\{0\})
