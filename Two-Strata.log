@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.1.16)  13 APR 2023 15:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.1.16)  14 APR 2023 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -798,40 +798,43 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 75.
 
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
-line 97.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 112
+LaTeX Font Info:    Trying to load font information for U+euf on input line 103
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [2]
+)
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
+line 109.
+ [2]
 
-LaTeX Warning: Reference `quotientmetric' on page 1 undefined on input line 148
+LaTeX Warning: Reference `quotientmetric' on page 1 undefined on input line 176
 .
 
 
-LaTeX Warning: Reference `kahlerreduction' on page 1 undefined on input line 14
-8.
+LaTeX Warning: Reference `kahlerreduction' on page 1 undefined on input line 17
+6.
 
-[3] (./Two-Strata.aux)
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
+t line 189.
+[3] [4] (./Two-Strata.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Two-Strata.out' has not changed.
-(rerunfilecheck)             Checksum: 82DF929392119FDB0EE40D6D4156DE69;165.
+(rerunfilecheck)             Checksum: 93A77120926758EDCE12723E5B50C2ED;271.
  ) 
 Here is how much of TeX's memory you used:
- 25163 strings out of 478023
- 491532 string characters out of 5841208
- 848347 words of memory out of 5000000
- 43152 multiletter control sequences out of 15000+600000
+ 25177 strings out of 478023
+ 491722 string characters out of 5841208
+ 848351 words of memory out of 5000000
+ 43157 multiletter control sequences out of 15000+600000
  487650 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,16n,104p,570b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,16n,104p,530b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
@@ -846,10 +849,10 @@ m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Two-Strata.pdf (3 pages, 156368 bytes).
+Output written on Two-Strata.pdf (4 pages, 164801 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 137 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
+ 29 words of extra memory for PDF output out of 10000 (max. 10000000)
 
